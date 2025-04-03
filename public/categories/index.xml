@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on أبو هاشم</title>
+    <link>//localhost:1313/categories/</link>
+    <description>Recent content in Categories on أبو هاشم</description>
+    <generator>Hugo</generator>
+    <language>ar</language>
+    <copyright>&amp;copy; 2025   </copyright>
+    <lastBuildDate>Thu, 27 Mar 2025 05:48:10 +0200</lastBuildDate>
+    <atom:link href="//localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>المقالات الإذاعية</title>
+      <link>//localhost:1313/categories/%D8%A7%D9%84%D9%85%D9%82%D8%A7%D9%84%D8%A7%D8%AA-%D8%A7%D9%84%D8%A5%D8%B0%D8%A7%D8%B9%D9%8A%D8%A9/</link>
+      <pubDate>Thu, 27 Mar 2025 05:48:10 +0200</pubDate>
+      <guid>//localhost:1313/categories/%D8%A7%D9%84%D9%85%D9%82%D8%A7%D9%84%D8%A7%D8%AA-%D8%A7%D9%84%D8%A5%D8%B0%D8%A7%D8%B9%D9%8A%D8%A9/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>نشوار المقال</title>
+      <link>//localhost:1313/categories/%D9%86%D8%B4%D9%88%D8%A7%D8%B1-%D8%A7%D9%84%D9%85%D9%82%D8%A7%D9%84/</link>
+      <pubDate>Thu, 27 Mar 2025 05:48:10 +0200</pubDate>
+      <guid>//localhost:1313/categories/%D9%86%D8%B4%D9%88%D8%A7%D8%B1-%D8%A7%D9%84%D9%85%D9%82%D8%A7%D9%84/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

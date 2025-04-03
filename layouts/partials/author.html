@@ -1,0 +1,88 @@
+{{/* Check if authors are defined in front matter */}}
+{{ if .Params.authors }}
+  {{ $showAuthor := .Params.showAuthor | default (.Site.Params.article.showAuthor | default true) }}
+  {{ if $showAuthor }}
+    {{ $lazy := .Params.enableImageLazyLoading | default .Site.Params.enableImageLazyLoading | default true }}
+    <div class="space-y-5"> {{/* Add spacing between multiple authors */}}
+    {{ range .Params.authors }}
+      {{/* Get author data from /data/authors/<authorID>.json */}}
+      {{ $authorID := . }}
+      {{ $authorData := index site.Data.authors $authorID }}
+      {{ if $authorData }}
+        <div class="flex">
+          {{ $altText := ($authorData.name | default "Author") }}
+          {{ with $authorData.avatar }}
+            {{ $authorImage := resources.Get . }}
+            {{ if $authorImage }}
+              {{ $imgClass := "!mb-0 !mt-0 me-4 w-24 h-auto rounded-full" }}
+              {{ partial "picture.html" (dict "img" $authorImage "alt" $altText "class" $imgClass "lazy" $lazy ) }}
+            {{ end }}
+          {{ end }}
+          <div class="place-self-center">
+            {{ with $authorData.name | markdownify | emojify }}
+              <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+                {{ i18n "author.byline_title" | markdownify | emojify }}
+              </div>
+              <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+                {{ . }}
+              </div>
+            {{ end }}
+            {{ with $authorData.bio | markdownify | emojify }}
+              <div class="text-sm text-neutral-700 dark:text-neutral-400">{{ . }}</div>
+            {{ end }}
+            {{/* Pass author-specific social links if available, using the theme's icon partial */}}
+            {{ with $authorData.social }}
+              <div class="text-2xl sm:text-lg flex flex-wrap text-neutral-400 dark:text-neutral-500"> {{/* Mimic classes from author-links.html */}}
+                {{ range $key, $value := . }}
+                  <a
+                    class="px-1 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400" {{/* Mimic classes from author-links.html */}}
+                    style="will-change:transform;" {{/* Mimic style from author-links.html */}}
+                    href="{{ $value | safeURL }}"
+                    target="_blank"
+                    aria-label="{{ $key | title }}"
+                    rel="me noopener noreferrer"
+                    >{{ partial "icon.html" $key }}</a {{/* Use the theme's icon.html partial */}}
+                  >
+                {{ end }}
+              </div>
+            {{ end }}
+          </div>
+        </div>
+      {{ else }}
+         {{/* Optional: Warn if author data not found */}}
+         {{ warnf "Author data not found for ID: %s in file %s" $authorID $.File.Path }}
+      {{ end }}
+    {{ end }}
+    </div>
+  {{ end }}
+{{ else }}
+  {{/* Fallback to original single author logic if .Params.authors is not set */}}
+  {{ if .Params.showAuthor | default (.Site.Params.article.showAuthor | default true) }}
+    <div class="flex">
+      {{ $lazy := .Params.enableImageLazyLoading|default  .Site.Params.enableImageLazyLoading | default true }}
+      {{ $altText := ($.Site.Language.Params.Author.name | default "Author") }}
+      {{ with .Site.Language.Params.Author.image }}
+        {{ $authorImage := resources.Get . }}
+        {{ if $authorImage }}
+          {{ $imgClass := "!mb-0 !mt-0 me-4 w-24 h-auto rounded-full" }}
+          {{ partial "picture.html" (dict "img" $authorImage "alt" $altText "class" $imgClass "lazy" $lazy  ) }}
+        {{ end }}
+      {{ end }}
+      <div class="place-self-center">
+        {{ with .Site.Language.Params.Author.name | markdownify | emojify }}
+          <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+            {{ i18n "author.byline_title" | markdownify | emojify }}
+          </div>
+          <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+            {{ . }}
+          </div>
+        {{ end }}
+        {{ with .Site.Language.Params.Author.bio | markdownify | emojify }}
+          <div class="text-sm text-neutral-700 dark:text-neutral-400">{{ . }}</div>
+        {{ end }}
+        {{/* Use the original social links partial for the site author */}}
+        <div class="text-2xl sm:text-lg">{{ partialCached "author-links.html" . }}</div>
+      </div>
+    </div>
+  {{ end }}
+{{ end }}

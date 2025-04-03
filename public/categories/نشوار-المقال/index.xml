@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>نشوار المقال on أبو هاشم</title>
+    <link>//localhost:1313/categories/%D9%86%D8%B4%D9%88%D8%A7%D8%B1-%D8%A7%D9%84%D9%85%D9%82%D8%A7%D9%84/</link>
+    <description>Recent content in نشوار المقال on أبو هاشم</description>
+    <generator>Hugo</generator>
+    <language>ar</language>
+    <copyright>&amp;copy; 2025   </copyright>
+    <lastBuildDate>Thu, 27 Mar 2025 05:48:10 +0200</lastBuildDate>
+    <atom:link href="//localhost:1313/categories/%D9%86%D8%B4%D9%88%D8%A7%D8%B1-%D8%A7%D9%84%D9%85%D9%82%D8%A7%D9%84/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>فضل الاستماع إلى القرآن</title>
+      <link>//localhost:1313/posts/l-quran/</link>
+      <pubDate>Thu, 27 Mar 2025 05:48:10 +0200</pubDate>
+      <guid>//localhost:1313/posts/l-quran/</guid>
+      <description>برنامج: ًقافة إسلامٌة، تقدٌم: ا. عبد الفتاح شمعة، س جلت بتارٌي</description>
+    </item>
+  </channel>
+</rss>
